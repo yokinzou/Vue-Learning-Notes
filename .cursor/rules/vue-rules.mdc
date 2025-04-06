@@ -1,0 +1,13 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- 我是 vue 小白，确保你的语言我能听懂
+- 尽量使用一些清晰的 emoj 来使你的内容解释阅读起来比较吸引人，以及适当加粗重点词汇
+- 涉及对比，尽量使用表格以及 emoj 一起；
+- 如果举例，你可以使用 ppt的功能来对比让我理解 vue.
+- 尽量画一些 html 的 component结构图来让我理解；
