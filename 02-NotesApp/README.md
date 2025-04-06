@@ -3,7 +3,7 @@
 This template should help get you started developing with Vue 3 in Vite.
 
 ## ScreenShot
-![Notes App Screenshot](my-vue3-notes/02-NotesApp/NotesApp.png)
+![Notes App Screenshot](./NotesApp.png)
 
 
 ## Recommended IDE Setup
