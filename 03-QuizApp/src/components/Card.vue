@@ -1,7 +1,6 @@
 <script setup>
 
-import { defineProps } from 'vue';
-
+// 表示 Card 组件可以接收一个名为 quiz 的属性
 const {quiz}=defineProps(['quiz'])
 
 </script>
