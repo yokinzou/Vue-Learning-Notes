@@ -1,19 +1,26 @@
 <script setup>
+import { useRouter } from 'vue-router';
 
-// 表示 Card 组件可以接收一个名为 quiz 的属性
 const {quiz}=defineProps(['quiz'])
+const router=useRouter()
+
+const navigateToQuiz =() => {
+  router.push(`/quiz/${quiz.id}`)
+}
 
 </script>
 
 <template>
+ <div class="card" @click="navigateToQuiz" >
 
- <div class="card" >
+
+ 
    <img :src="quiz.img" alt="">
-   <div class="card-text">
-   <h2>{{quiz.name}}</h2>
-   <p>{{ quiz.questions.length }} questions</p>
-  </div>
-  </div>
+    <div class="card-text">
+    <h2>{{quiz.name}}</h2>
+    <p>{{ quiz.questions.length }} questions</p>
+    </div>
+</div>
 
 </template>
 
@@ -28,6 +35,7 @@ const {quiz}=defineProps(['quiz'])
   box-shadow: 1px 1px 10px rgba(0,0,0,0.1);;
   border-radius: 2%;
   cursor: pointer;
+
 }
 
 

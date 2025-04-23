@@ -18,16 +18,16 @@ const {
 </h2>
 
  <div class="quiz-option">
-       <div  v-for="q in currentQuestion.options" 
-               :key="q.id"
+       <div  v-for="option in currentQuestion.options" 
+               :key="option.id"
                class="single-option"
-               @click="handleOptionClick">
+               @click="handleOptionClick(option)">
            
            <div class="serial-number">
-               {{q.label}}
+               {{option.label}}
            </div>
            <div class="option-value">
-               {{q.text}}
+               {{option.text}}
            </div>
        </div>
  </div>
