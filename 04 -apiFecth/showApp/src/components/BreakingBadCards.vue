@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 import axios from 'axios'
 import { ref,watch } from 'vue'
+import Cards from './Cards.vue'
 
 const characters=ref(null)
 const page=ref(0)
@@ -19,7 +20,27 @@ watch(page,async() => {
 
 <template>
 
-  <main>
+  <div class="container">
+
+    <div class="cards">
+
+      <Cards
+      v-for="character in characters "
+      :key="character.char_id"
+      :image="character.img"
+      :name="character.name"
+      :occupation="character.occupation"
+      />
+    </div>
+
+      <div class="button-container"> 
+        <button @click="page--"> &lt</button>
+        <button @click="page++"> ></button>
+      </div>
+
+  </div>
+
+  <!-- <main>
     <h1>Breaking Bad Cards </h1>
     <p> {{ characters}}</p>
     <div>
@@ -30,6 +51,50 @@ watch(page,async() => {
         Back
       </button>
     </div>
-  </main>
+  </main> -->
 
 </template>
+
+<style scoped>
+
+.container {
+    background-color: rgb(27, 26, 26);
+    padding: 30px
+}
+.cards {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 600px */
+}
+.cards h3 {
+    font-weight: bold;
+}
+.cards p {
+    font-size: 10px;
+}
+.jobs {
+    display: flex;
+    flex-wrap: wrap;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px
+}
+.button-container button {
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+</style>
