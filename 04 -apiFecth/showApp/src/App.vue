@@ -1,5 +1,6 @@
 <script setup> 
 import BreakingBadCards from './components/BreakingBadCards.vue';
+import RickyMortyCards from './components/RickyMortyCards.vue';
 import { Suspense } from 'vue';
 </script>
 
@@ -11,6 +12,7 @@ import { Suspense } from 'vue';
   <BreakingBadCards/>
 </template>
 <template #fallback>
+
   <div>
     <p>
       Loading
@@ -18,10 +20,8 @@ import { Suspense } from 'vue';
   </div>
 </template>
 
-
-
 </Suspense>
 
-
+<RickyMortyCards />
 
 </template>
