@@ -8,19 +8,21 @@ const characters=ref(null)
 const page=ref(0)
 
 onMounted( async() =>{ 
-const response= await axios.get(`https://rickandmortyapi.com/api/character`)
+const response= await axios.get(`https://rickandmortyapi.com/api/character/?page=1`)
 // console.log("API 响应:", response);
 characters.value = response.data.results
-// console.log(characters.value)
+console.log(page.value)
+console.log(characters.value)
 } )
 
 
 
-// // 当某个值改变，需要执行 action，则用 watch；watch 只有当 page 值改变才会触发，不会在创建时立即执行回调函数。
-// watch(page,async() => {
-//  const res=await axios.get(`http://localhost:8080/api/characters?limit=8&offset=${page.value *8}`)
-//  characters.value=res.data
-// })
+// 当某个值改变，需要执行 action，则用 watch；watch 只有当 page 值改变才会触发，不会在创建时立即执行回调函数。
+watch(page,async() => {
+ const res=await axios.get(`https://rickandmortyapi.com/api/character/?page=${page.value}`)
+ console.log(page.value)
+ characters.value=res.data.results
+})
 
 </script>
 
@@ -30,19 +32,24 @@ characters.value = response.data.results
 
     <div class="cards">
 
-      <!-- <Cards
+      <Cards
       v-for="character in characters "
-      :key="character.char_id"
-      :image="character.img"
+      :key="character.id"
+      :image="character.image"
       :name="character.name"
-      :occupation="character.occupation"
-      /> -->
-    </div>
+       >
+      <div>
+       {{character.location.name}}
 
-      <!-- <div class="button-container"> 
+      </div>
+    
+      </Cards>
+      
+    </div>
+      <div class="button-container"> 
         <button @click="page--"> &lt</button>
         <button @click="page++"> ></button>
-      </div> -->
+      </div>
 
   </div>
 

@@ -30,6 +30,18 @@ watch(page,async() => {
       :image="character.img"
       :name="character.name"
       :occupation="character.occupation"
+      >
+        <div class="jobs">  
+            <p v-for="(job,index) in character.occupation" :key="job">
+            {{job}} <span v-if="index <character.occupation.length -1"> ,&nbsp;  </span>
+            </p>
+        </div>
+    
+    
+      </Cards>
+      
+      
+      
       />
     </div>
 

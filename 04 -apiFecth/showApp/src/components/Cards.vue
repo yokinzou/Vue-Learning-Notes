@@ -2,8 +2,8 @@
 
  const props =  defineProps(
     ['image'
-    ,'name'
-    ,'occupation'])
+    ,'name']
+ )
 
 </script>
 
@@ -14,11 +14,12 @@
       <img :src="image">
     </template>
     <h3> {{name}}</h3>
-    <div class="jobs">  
-        <p v-for="(job,index) in occupation" :key="job">
-        {{job}} <span v-if="index <occupation.length -1"> ,&nbsp;  </span>
-        </p>
-    </div>
+    <slot> </slot>
+        <!-- <div class="jobs">  
+            <p v-for="(job,index) in occupation" :key="job">
+            {{job}} <span v-if="index <occupation.length -1"> ,&nbsp;  </span>
+            </p>
+        </div> -->
   </NCard>
 </template>
 
