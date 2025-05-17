@@ -42,7 +42,7 @@ watch(page,async() => {
       
       
       
-      />
+     
     </div>
 
       <div class="button-container"> 
@@ -52,18 +52,6 @@ watch(page,async() => {
 
   </div>
 
-  <!-- <main>
-    <h1>Breaking Bad Cards </h1>
-    <p> {{ characters}}</p>
-    <div>
-      <button @click="page++">
-        Next
-      </button>
-      <button @click="page --">
-        Back
-      </button>
-    </div>
-  </main> -->
 
 </template>
 
@@ -71,7 +59,7 @@ watch(page,async() => {
 
 .container {
     background-color: rgb(27, 26, 26);
-    padding: 30px
+    padding: 30px;
 }
 .cards {
     max-width: 1000px;

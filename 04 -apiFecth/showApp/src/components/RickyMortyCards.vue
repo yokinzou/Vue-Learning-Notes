@@ -11,8 +11,8 @@ onMounted( async() =>{
 const response= await axios.get(`https://rickandmortyapi.com/api/character/?page=1`)
 // console.log("API 响应:", response);
 characters.value = response.data.results
-console.log(page.value)
-console.log(characters.value)
+// console.log(page.value)
+// console.log(characters.value)
 } )
 
 
@@ -20,7 +20,7 @@ console.log(characters.value)
 // 当某个值改变，需要执行 action，则用 watch；watch 只有当 page 值改变才会触发，不会在创建时立即执行回调函数。
 watch(page,async() => {
  const res=await axios.get(`https://rickandmortyapi.com/api/character/?page=${page.value}`)
- console.log(page.value)
+//  console.log(page.value)
  characters.value=res.data.results
 })
 
@@ -32,20 +32,22 @@ watch(page,async() => {
 
     <div class="cards">
 
-      <Cards
+      <Cards v-if="characters"
       v-for="character in characters "
       :key="character.id"
       :image="character.image"
       :name="character.name"
        >
-      <div>
-       {{character.location.name}}
+      <div> {{character.location.name}}  </div>
 
-      </div>
-    
       </Cards>
-      
-    </div>
+     
+      <div class="spin-container" v-if="!characters" >
+      <n-spin size="large" />
+      </div>
+
+ </div>
+
       <div class="button-container"> 
         <button @click="page--"> &lt</button>
         <button @click="page++"> ></button>
@@ -106,7 +108,7 @@ watch(page,async() => {
     margin: 0 5px;
     cursor: pointer;
 }
-.spinner {
+.spin-container {
     display: flex;
     align-items: center;
     justify-content: center;

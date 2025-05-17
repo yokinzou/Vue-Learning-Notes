@@ -1,27 +1,43 @@
 <script setup> 
-import BreakingBadCards from './components/BreakingBadCards.vue';
+import BreakingBadCardsSuspence from './components/BreakingBadCardsSuspence.vue';
 import RickyMortyCards from './components/RickyMortyCards.vue';
-import { Suspense } from 'vue';
+import Hero from './components/Hero.vue';
+import { ref } from 'vue';
+
+const isBreakingBad=ref(true)
+
+const toggleShow =()=>{
+  isBreakingBad.value=!isBreakingBad.value
+}
 </script>
 
 <template>
 
-<h1> Hero</h1>
-<Suspense>
-<template #default>
-  <BreakingBadCards/>
-</template>
-<template #fallback>
+<Hero
+:isBreakingBad="isBreakingBad"  @selectShow="toggleShow"/>
 
-  <div>
-    <p>
-      Loading
-    </p>
-  </div>
-</template>
+<!-- keep-alive 是让状态保持不变 -->
+<keep-alive>
+  <component :is="isBreakingBad?BreakingBadCardsSuspence
+                               :RickyMortyCards" > 
+  </component>
+</keep-alive>
 
-</Suspense>
 
-<RickyMortyCards />
+<!-- <div v-if="isBreakingBad"> <BreakingBadCardsSuspence/>  </div>
+
+<div v-else>  <RickyMortyCards />  </div> -->
+
 
 </template>
+
+<style scoped>
+.spin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+}
+
+</style>
