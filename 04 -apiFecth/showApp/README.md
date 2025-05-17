@@ -1,6 +1,4 @@
 # showApp
-<img src="./image/showApp-screenShot.png" alt="Screenshot">
-
 <img src="./image/showApp.gif" alt="Animation Demo">
 
 ## Recommended IDE Setup
