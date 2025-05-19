@@ -13,12 +13,6 @@ const changePageStatus =() =>{
     emit('selectShow')
 }
 
-// const isBreakingBad =ref(true)
-
-// 以下函数在传参情况下，不支持修改父组件的参数值，要改成发射状态的形式
-// const changePageStatus = () => {
-//     isBreakingBad.value=!isBreakingBad.value
-// }
 
 </script>
 
