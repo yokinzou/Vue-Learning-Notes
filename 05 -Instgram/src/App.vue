@@ -6,7 +6,9 @@ import Timeline from './components/Timeline.vue'
 
 <template>
   <Nav />
-  <Timeline />
+
+  <RouterView />
+
 </template>
 
 <style scoped></style>
