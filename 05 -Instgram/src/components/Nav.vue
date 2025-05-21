@@ -1,12 +1,17 @@
 <script setup>
 import Container from './Container.vue'
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 import authModal from './authModal.vue'
 
-const userName = ref('')
+const SearchUserName = ref('')
+
+const router = useRouter()
+
 const onSearch = () => {
-  'test'
+  if (SearchUserName.value) {
+    router.push(`/profile/${SearchUserName.value}`)
+  }
 }
 
 const isLogin = ref(false)
@@ -28,10 +33,10 @@ const handleOk = (e) => {
     <a-layout-header class="header">
       <Container>
         <div class="left-content">
-          <router-link to="/" class="logo-link">Instergram</router-link>
+          <RouterLink to="/" class="logo-link">Instergram</RouterLink>
           <a-input-search
             class="search-content"
-            v-model:userName="userName.value"
+            v-model:value="SearchUserName"
             placeholder="user name ..."
             style="width: 200px"
             @search="onSearch"
